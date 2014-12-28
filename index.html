@@ -1,0 +1,85 @@
+<html>
+ <head>
+    <title>TicTacToe</title>
+    <h3>Two player TicTacToe</h3>
+
+     <script>
+         var flag=1;
+
+         var index=0;  
+         var arrFirstPlayer=new Array();
+         var arrSecondPlayer=new Array();
+
+         function arraycontains(a,w){
+           var i;
+           for(i=0;i<6;i++){
+              if(a[i]==w)
+                 return true;
+            }
+              
+          }
+
+
+
+         function clickedBox(v){
+          if(flag==1){
+            arrFirstPlayer[index]=document.getElementById(v).id;
+			index=index+1;
+            document.getElementById(v).value="X";
+            flag=2;
+           
+ if((arraycontains(arrFirstPlayer,document.getElementById("11").id) && arraycontains(arrFirstPlayer,document.getElementById("21").id) && arraycontains(arrFirstPlayer,document.getElementById("31").id))       
+ ||	(arraycontains(arrFirstPlayer,document.getElementById("12").id) && arraycontains(arrFirstPlayer,document.getElementById("22").id) && arraycontains(arrFirstPlayer,document.getElementById("32").id))
+ || (arraycontains(arrFirstPlayer,document.getElementById("13").id) && arraycontains(arrFirstPlayer,document.getElementById("23").id) && arraycontains(arrFirstPlayer,document.getElementById("33").id))
+ || (arraycontains(arrFirstPlayer,document.getElementById("11").id) && arraycontains(arrFirstPlayer,document.getElementById("12").id) && arraycontains(arrFirstPlayer,document.getElementById("13").id))
+ || (arraycontains(arrFirstPlayer,document.getElementById("21").id) && arraycontains(arrFirstPlayer,document.getElementById("22").id) && arraycontains(arrFirstPlayer,document.getElementById("23").id))
+ || (arraycontains(arrFirstPlayer,document.getElementById("31").id) && arraycontains(arrFirstPlayer,document.getElementById("32").id) && arraycontains(arrFirstPlayer,document.getElementById("33").id))
+ || (arraycontains(arrFirstPlayer,document.getElementById("11").id) && arraycontains(arrFirstPlayer,document.getElementById("22").id) && arraycontains(arrFirstPlayer,document.getElementById("33").id))
+ || (arraycontains(arrFirstPlayer,document.getElementById("13").id) && arraycontains(arrFirstPlayer,document.getElementById("22").id) && arraycontains(arrFirstPlayer,document.getElementById("31").id))
+
+		  )  {        
+               window.alert("Player 1 wins");
+			   window.location="index.html";
+
+		  }
+          }
+          else{
+            arrSecondPlayer[index]=document.getElementById(v).id;
+            index=index+1;
+            document.getElementById(v).value="O";
+            flag=1;
+        if((arraycontains(arrFirstPlayer,document.getElementById("11").id) && arraycontains(arrFirstPlayer,document.getElementById("21").id) && arraycontains(arrFirstPlayer,document.getElementById("31").id))       
+ ||	(arraycontains(arrSecondPlayer,document.getElementById("12").id) && arraycontains(arrSecondPlayer,document.getElementById("22").id) && arraycontains(arrSecondPlayer,document.getElementById("32").id))
+ || (arraycontains(arrSecondPlayer,document.getElementById("13").id) && arraycontains(arrSecondPlayer,document.getElementById("23").id) && arraycontains(arrSecondPlayer,document.getElementById("33").id))
+ || (arraycontains(arrSecondPlayer,document.getElementById("11").id) && arraycontains(arrSecondPlayer,document.getElementById("12").id) && arraycontains(arrSecondPlayer,document.getElementById("13").id))
+ || (arraycontains(arrSecondPlayer,document.getElementById("21").id) && arraycontains(arrSecondPlayer,document.getElementById("22").id) && arraycontains(arrSecondPlayer,document.getElementById("23").id))
+ || (arraycontains(arrSecondPlayer,document.getElementById("31").id) && arraycontains(arrSecondPlayer,document.getElementById("32").id) && arraycontains(arrSecondPlayer,document.getElementById("33").id))
+ || (arraycontains(arrSecondPlayer,document.getElementById("11").id) && arraycontains(arrSecondPlayer,document.getElementById("22").id) && arraycontains(arrSecondPlayer,document.getElementById("33").id))
+ || (arraycontains(arrSecondPlayer,document.getElementById("13").id) && arraycontains(arrSecondPlayer,document.getElementById("22").id) && arraycontains(arrSecondPlayer,document.getElementById("31").id))
+
+		  )  {        
+               window.alert("Player 2 wins");
+               window.location="index.html";
+		  }         
+          }
+         }
+
+     </script> 
+ </head>
+
+ <body>
+   <form>
+      <input type="button" style="height:50px; width:50px" value=" " id="11" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="12" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="13" onClick="clickedBox(this.id);"/><br/>
+      <input type="button" style="height:50px; width:50px" value=" " id="21" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="22" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="23" onClick="clickedBox(this.id);"/><br/>
+      <input type="button" style="height:50px; width:50px" value=" " id="31" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="32" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="33" onClick="clickedBox(this.id);"/>
+      
+     
+   </form>    
+ </body>
+</html>

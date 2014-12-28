@@ -1,0 +1,65 @@
+<html>
+<head>
+<script>
+
+var flag=1;
+var currentgamestatusstring="00000";
+
+function clickedBox(v)
+{
+
+var idYouClicked=document.getElementById(v).id;
+
+if(flag==1){
+   document.getElementById(v).value="X";
+   flag=2;
+  }
+else{
+   document.getElementById(v).value="O";
+   flag=1;
+  }
+}
+
+function calltophp(str){
+
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","gethint.php?gamestatus="+str,true);
+xmlhttp.send();
+}
+
+
+</script>
+</head>
+<body>
+
+
+
+<p>Position of next button to click <span id="txtHint"></span></p>
+
+      <input type="button" style="height:50px; width:50px" value=" " id="11" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="12" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="13" onClick="clickedBox(this.id);"/><br/>
+      <input type="button" style="height:50px; width:50px" value=" " id="21" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="22" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="23" onClick="clickedBox(this.id);"/><br/>
+      <input type="button" style="height:50px; width:50px" value=" " id="31" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="32" onClick="clickedBox(this.id);"/>
+      <input type="button" style="height:50px; width:50px" value=" " id="33" onClick="clickedBox(this.id);"/>
+
+</body>
+</html>
